@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"log"
 	"strings"
 )
@@ -23,6 +24,28 @@ func run(auth *authInfo, args []string) error {
 
 func (ri *runInfo) handle(cmd *cmdInfo) error {
 	for {
+		// check flags
+		for _, flag := range cmd.flags {
+			flagN := "-" + flag.Name
+			found := false
+			// look in args for this
+			for p, arg := range ri.args {
+				if strings.ToLower(arg) == flagN {
+					// we have something!
+					ri.flags[flag.Name] = ri.args[p+1]
+					ri.args = append(ri.args[:p], ri.args[p+2:]...)
+					found = true
+					break
+				}
+			}
+			if found {
+				continue
+			}
+			if flag.Required {
+				return fmt.Errorf("Flag %s is required: %s", flagN, flag.Usage)
+			}
+		}
+
 		if cmd.cb != nil {
 			return cmd.cb(ri)
 		}

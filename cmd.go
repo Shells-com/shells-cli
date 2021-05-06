@@ -3,6 +3,13 @@ package main
 type cmdInfo struct {
 	children map[string]*cmdInfo
 	cb       func(*runInfo) error
+	flags    []cmdFlag
+}
+
+type cmdFlag struct {
+	Name     string // name as on command line
+	Usage    string
+	Required bool // if true, value is required
 }
 
 var rootCmd = &cmdInfo{
@@ -14,6 +21,11 @@ var rootCmd = &cmdInfo{
 		},
 		"os": {
 			children: map[string]*cmdInfo{
+				"image": {
+					children: map[string]*cmdInfo{
+						"ls": {cb: osImgList, flags: []cmdFlag{{Name: "os", Usage: "Specify the OS to list images", Required: true}}},
+					},
+				},
 				"ls": {cb: osList},
 			},
 		},
