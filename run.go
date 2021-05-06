@@ -32,6 +32,9 @@ func (ri *runInfo) handle(cmd *cmdInfo) error {
 			for p, arg := range ri.args {
 				if strings.ToLower(arg) == flagN {
 					// we have something!
+					if len(ri.args) < p+2 {
+						return fmt.Errorf("Flag %s needs to be followed by an argument: %s", flagN, flag.Usage)
+					}
 					ri.flags[flag.Name] = ri.args[p+1]
 					ri.args = append(ri.args[:p], ri.args[p+2:]...)
 					found = true
