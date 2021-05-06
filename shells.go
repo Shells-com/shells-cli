@@ -2,7 +2,8 @@ package main
 
 import (
 	"context"
-	"log"
+	"fmt"
+	"os"
 )
 
 type Shell struct {
@@ -10,7 +11,7 @@ type Shell struct {
 	Label string `json:"Label"`
 }
 
-func lsShells(auth *authInfo) error {
+func shellsList(auth *authInfo) error {
 	// list available shells
 	var list []Shell
 
@@ -20,7 +21,7 @@ func lsShells(auth *authInfo) error {
 	}
 
 	for _, shell := range list {
-		log.Printf("%s", shell.Label)
+		fmt.Fprintf(os.Stdout, "%s\r\n", shell.Label)
 	}
 
 	return nil
