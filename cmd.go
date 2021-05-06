@@ -24,6 +24,13 @@ var rootCmd = &cmdInfo{
 				"image": {
 					children: map[string]*cmdInfo{
 						"ls": {cb: osImgList, flags: []cmdFlag{{Name: "os", Usage: "Specify the OS to list images", Required: true}}},
+						"upload": {
+							cb: osImgUpload,
+							flags: []cmdFlag{
+								{Name: "os", Usage: "Specify the OS to upload to", Required: true},
+								{Name: "file", Usage: "File to be uploaded", Required: true},
+							},
+						},
 					},
 				},
 				"ls": {cb: osList},
