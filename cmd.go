@@ -16,7 +16,9 @@ var rootCmd = &cmdInfo{
 	children: map[string]*cmdInfo{
 		"shells": {
 			children: map[string]*cmdInfo{
-				"ls": {cb: shellsList},
+				"ls":    {cb: shellsList},
+				"info":  {cb: shellsInfo, flags: []cmdFlag{{Name: "shell", Usage: "Specify shell to fetch", Required: true}}},
+				"start": {cb: shellsStart, flags: []cmdFlag{{Name: "shell", Usage: "Specify shell to start", Required: true}}},
 			},
 		},
 		"os": {
