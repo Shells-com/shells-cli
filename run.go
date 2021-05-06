@@ -23,6 +23,8 @@ func run(auth *authInfo, args []string) error {
 }
 
 func (ri *runInfo) handle(cmd *cmdInfo) error {
+	var prefix []string
+
 	for {
 		// check flags
 		for _, flag := range cmd.flags {
@@ -54,6 +56,7 @@ func (ri *runInfo) handle(cmd *cmdInfo) error {
 		}
 		if len(ri.args) > 0 {
 			if v, ok := cmd.children[strings.ToLower(ri.args[0])]; ok {
+				prefix = append(prefix, ri.args[0])
 				ri.args = ri.args[1:]
 				cmd = v
 				continue
@@ -69,7 +72,7 @@ func (ri *runInfo) handle(cmd *cmdInfo) error {
 	log.Printf("Please choose one of:")
 
 	for k := range cmd.children {
-		log.Printf(" * %s", k)
+		log.Printf(" * %s", strings.Join(append(prefix, k), " "))
 	}
 	return nil
 }
