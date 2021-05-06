@@ -1,0 +1,3 @@
+PROJECT_NAME=shells-cli
+DIST_ARCHS=linux_amd64 linux_arm64 freebsd_amd64 freebsd_arm64 windows_amd64
+export CGO_ENABLED=0
