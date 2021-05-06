@@ -57,6 +57,8 @@ func (ri *runInfo) handle(cmd *cmdInfo) error {
 				ri.args = ri.args[1:]
 				cmd = v
 				continue
+			} else {
+				break
 			}
 		} else {
 			break
