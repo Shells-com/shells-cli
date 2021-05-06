@@ -7,8 +7,10 @@ import (
 )
 
 type Shell struct {
-	Id    string `json:"Shell__"`
-	Label string `json:"Label"`
+	Id     string `json:"Shell__"`
+	Label  string
+	Status string
+	State  string
 }
 
 func shellsList(ri *runInfo) error {
@@ -21,7 +23,7 @@ func shellsList(ri *runInfo) error {
 	}
 
 	for _, shell := range list {
-		fmt.Fprintf(os.Stdout, "%s %s\r\n", shell.Id, shell.Label)
+		fmt.Fprintf(os.Stdout, "%s %s (%s)\r\n", shell.Id, shell.Label, shell.State)
 	}
 
 	return nil
