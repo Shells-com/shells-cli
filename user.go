@@ -3,6 +3,7 @@ package main
 import (
 	"context"
 	"encoding/json"
+	"errors"
 	"fmt"
 	"io"
 	"log"
@@ -37,7 +38,7 @@ func checkLogin() (*authInfo, error) {
 	}
 	if err := auth.load(); err != nil {
 		// attempt to do auth
-		if os.IsNotExist(err) {
+		if errors.Is(err, os.ErrNotExist) {
 			log.Printf("no login information found, logging in...")
 		} else {
 			log.Printf("failed to load login (%s), logging in...", err)
