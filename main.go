@@ -19,7 +19,7 @@ func main() {
 		os.Exit(1)
 	}
 
-	err = rootCmd.handle(auth, os.Args[1:])
+	err = run(auth, os.Args[1:])
 	if err != nil {
 		log.Printf("failed: %s", err)
 		os.Exit(1)

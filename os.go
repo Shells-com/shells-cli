@@ -24,17 +24,17 @@ type ShellOs struct {
 	Flags   []string // byol_warning
 }
 
-func osList(auth *authInfo) error {
+func osList(ri *runInfo) error {
 	// list available shells
 	var list []ShellOs
 
-	err := auth.Apply(context.Background(), "Shell/OS", "GET", map[string]interface{}{}, &list)
+	err := ri.auth.Apply(context.Background(), "Shell/OS", "GET", map[string]interface{}{}, &list)
 	if err != nil {
 		return err
 	}
 
 	for _, shos := range list {
-		fmt.Fprintf(os.Stdout, "%s\r\n", shos.Name)
+		fmt.Fprintf(os.Stdout, "%s %s\r\n", shos.Id, shos.Name)
 	}
 
 	return nil
