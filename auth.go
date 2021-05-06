@@ -167,5 +167,10 @@ func (auth *authInfo) login() error {
 }
 
 func (auth *authInfo) Apply(ctx context.Context, p, m string, arg map[string]interface{}, target interface{}) error {
-	return rest.Apply(auth.token.Use(ctx), p, m, arg, target)
+	err := rest.Apply(auth.token.Use(ctx), p, m, arg, target)
+	if err != nil {
+		return err
+	}
+	auth.save() // perform save just in case token was updated
+	return nil
 }
