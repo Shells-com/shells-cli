@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"log"
 	"os"
 
@@ -9,7 +10,6 @@ import (
 )
 
 func main() {
-	log.Printf("shells-cli version %s", goupd.GIT_TAG)
 	rest.Host = "www.shells.com"
 
 	// let's make sure we're logged in
@@ -24,4 +24,9 @@ func main() {
 		log.Printf("failed: %s", err)
 		os.Exit(1)
 	}
+}
+
+func showVersion(ri *runInfo) error {
+	fmt.Fprintf(os.Stdout, "shells-cli version %s built %s\r\n", goupd.GIT_TAG, goupd.DATE_TAG)
+	return nil
 }

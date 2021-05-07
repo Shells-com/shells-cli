@@ -2,7 +2,8 @@ package main
 
 import (
 	"fmt"
-	"log"
+	"os"
+	"sort"
 	"strings"
 )
 
@@ -68,11 +69,23 @@ func (ri *runInfo) handle(cmd *cmdInfo) error {
 		}
 	}
 
-	log.Printf("Error: invalid argument provided")
-	log.Printf("Please choose one of:")
-
-	for k := range cmd.children {
-		log.Printf(" * %s", strings.Join(append(prefix, k), " "))
+	if len(cmd.children) == 0 {
+		return fmt.Errorf("invalid argument provided")
 	}
+
+	fmt.Fprintf(os.Stderr, "Error: invalid argument provided\r\n")
+	fmt.Fprintf(os.Stderr, "Please choose one of:\r\n")
+
+	list := make([]string, 0, len(cmd.children))
+	for k := range cmd.children {
+		list = append(list, k)
+	}
+	sort.Strings(list)
+
+	for _, k := range list {
+		fmt.Fprintf(os.Stderr, " * %s\r\n", strings.Join(append(prefix, k), " "))
+	}
+
+	os.Exit(2)
 	return nil
 }

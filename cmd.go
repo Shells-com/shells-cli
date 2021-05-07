@@ -14,6 +14,7 @@ type cmdFlag struct {
 
 var rootCmd = &cmdInfo{
 	children: map[string]*cmdInfo{
+		"version": {cb: showVersion},
 		"shells": {
 			children: map[string]*cmdInfo{
 				"ls":    {cb: shellsList},
