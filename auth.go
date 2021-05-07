@@ -29,7 +29,7 @@ func checkLogin() (*authInfo, error) {
 	auth := &authInfo{
 		name: "default",
 	}
-	if v := os.Getenv("SHELLS_AUTH"); v != "" {
+	if v := os.Getenv("SHELLS_PROFILE"); v != "" {
 		auth.name = v
 	}
 
