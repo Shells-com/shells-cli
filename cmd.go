@@ -17,10 +17,14 @@ var rootCmd = &cmdInfo{
 		"version": {cb: showVersion},
 		"shells": {
 			children: map[string]*cmdInfo{
-				"ls":    {cb: shellsList},
-				"info":  {cb: shellsInfo, flags: []cmdFlag{{Name: "shell", Usage: "Specify shell to fetch", Required: true}}},
-				"start": {cb: shellsStart, flags: []cmdFlag{{Name: "shell", Usage: "Specify shell to start", Required: true}}},
-				"view":  {cb: shellsView, flags: []cmdFlag{{Name: "shell", Usage: "Specify shell to get view URL", Required: true}}},
+				"ls":      {cb: shellsList},
+				"info":    {cb: shellsInfo, flags: []cmdFlag{{Name: "shell", Usage: "Specify shell to fetch", Required: true}}},
+				"state":   {cb: shellsState, flags: []cmdFlag{{Name: "shell", Usage: "Specify shell to fetch status of", Required: true}}},
+				"start":   {cb: shellsStart, flags: []cmdFlag{{Name: "shell", Usage: "Specify shell to start", Required: true}}},
+				"stop":    {cb: shellsStop, flags: []cmdFlag{{Name: "shell", Usage: "Specify shell to stop", Required: true}}},
+				"view":    {cb: shellsView, flags: []cmdFlag{{Name: "shell", Usage: "Specify shell to get view URL", Required: true}}},
+				"restart": {cb: shellsRestart, flags: []cmdFlag{{Name: "shell", Usage: "Specify shell to start", Required: true}}},
+				"reboot":  {cb: shellsReboot, flags: []cmdFlag{{Name: "shell", Usage: "Specify shell to stop", Required: true}}},
 			},
 		},
 		"os": {

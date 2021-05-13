@@ -87,6 +87,19 @@ func shellsInfo(ri *runInfo) error {
 	return nil
 }
 
+func shellsState(ri *runInfo) error {
+	var shell *Shell
+
+	err := ri.auth.Apply(context.Background(), "Shell/"+ri.flags["shell"], "GET", map[string]interface{}{}, &shell)
+	if err != nil {
+		return err
+	}
+
+	fmt.Fprintf(os.Stdout, "%s\r\n", shell.State)
+
+	return nil
+}
+
 func shellsView(ri *runInfo) error {
 	var res linkAccess
 
@@ -104,6 +117,39 @@ func shellsStart(ri *runInfo) error {
 	var res map[string]interface{}
 
 	err := ri.auth.Apply(context.Background(), "Shell/"+ri.flags["shell"]+":start", "POST", map[string]interface{}{}, &res)
+	if err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func shellsStop(ri *runInfo) error {
+	var res map[string]interface{}
+
+	err := ri.auth.Apply(context.Background(), "Shell/"+ri.flags["shell"]+":stop", "POST", map[string]interface{}{}, &res)
+	if err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func shellsRestart(ri *runInfo) error {
+	var res map[string]interface{}
+
+	err := ri.auth.Apply(context.Background(), "Shell/"+ri.flags["shell"]+":restart", "POST", map[string]interface{}{}, &res)
+	if err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func shellsReboot(ri *runInfo) error {
+	var res map[string]interface{}
+
+	err := ri.auth.Apply(context.Background(), "Shell/"+ri.flags["shell"]+":reboot", "POST", map[string]interface{}{}, &res)
 	if err != nil {
 		return err
 	}
