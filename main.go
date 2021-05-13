@@ -5,8 +5,12 @@ import (
 	"log"
 	"os"
 
-	"github.com/KarpelesLab/goupd"
 	"github.com/KarpelesLab/rest"
+)
+
+var (
+	GIT_TAG  string
+	DATE_TAG string
 )
 
 func main() {
@@ -27,6 +31,6 @@ func main() {
 }
 
 func showVersion(ri *runInfo) error {
-	fmt.Fprintf(os.Stdout, "shells-cli version %s built %s\r\n", goupd.GIT_TAG, goupd.DATE_TAG)
+	fmt.Fprintf(os.Stdout, "shells-cli version %s built %s\r\n", GIT_TAG, DATE_TAG)
 	return nil
 }
