@@ -20,6 +20,7 @@ var rootCmd = &cmdInfo{
 				"ls":    {cb: shellsList},
 				"info":  {cb: shellsInfo, flags: []cmdFlag{{Name: "shell", Usage: "Specify shell to fetch", Required: true}}},
 				"start": {cb: shellsStart, flags: []cmdFlag{{Name: "shell", Usage: "Specify shell to start", Required: true}}},
+				"view":  {cb: shellsView, flags: []cmdFlag{{Name: "shell", Usage: "Specify shell to get view URL", Required: true}}},
 			},
 		},
 		"os": {

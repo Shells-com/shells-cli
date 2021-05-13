@@ -29,6 +29,7 @@ type Shell struct {
 	Datacenter *ShellDatacenter `json:"Shell_Datacenter"`
 
 	// Ephemeral_Viewer
+	EphemeralViewer string `json:"Ephemeral_Viewer"`
 }
 
 type ShellHost struct {
@@ -81,6 +82,19 @@ func shellsInfo(ri *runInfo) error {
 	fmt.Fprintf(os.Stdout, "Size: %d units\r\n", shell.Size)
 	fmt.Fprintf(os.Stdout, "State: %s\r\n", shell.State)
 	fmt.Fprintf(os.Stdout, "Host: %s\r\n", shell.Host.Name)
+
+	return nil
+}
+
+func shellsView(ri *runInfo) error {
+	var shell *Shell
+
+	err := ri.auth.Apply(context.Background(), "Shell/"+ri.flags["shell"], "GET", map[string]interface{}{}, &shell)
+	if err != nil {
+		return err
+	}
+
+	fmt.Fprintf(os.Stdout, "%s\r\n", shell.EphemeralViewer)
 
 	return nil
 }
