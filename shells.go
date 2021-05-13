@@ -3,6 +3,7 @@ package main
 import (
 	"context"
 	"fmt"
+	"net/url"
 	"os"
 
 	"github.com/KarpelesLab/rest"
@@ -87,14 +88,14 @@ func shellsInfo(ri *runInfo) error {
 }
 
 func shellsView(ri *runInfo) error {
-	var shell *Shell
+	var res linkAccess
 
-	err := ri.auth.Apply(context.Background(), "Shell/"+ri.flags["shell"], "GET", map[string]interface{}{}, &shell)
+	err := ri.auth.Apply(context.Background(), "MetaObject/"+ri.flags["shell"]+":linkAccess", "POST", map[string]interface{}{"access": "A", "expires": "+2 hour"}, &res)
 	if err != nil {
 		return err
 	}
 
-	fmt.Fprintf(os.Stdout, "%s\r\n", shell.EphemeralViewer)
+	fmt.Fprintf(os.Stdout, "https://view.shells.com/?id=%s\r\n", url.QueryEscape(res.Link))
 
 	return nil
 }

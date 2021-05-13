@@ -6,3 +6,7 @@ type fileUpload struct {
 	PUT      string
 	Status   string // "valid"
 }
+
+type linkAccess struct {
+	Link string
+}
