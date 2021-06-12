@@ -2,3 +2,7 @@ github.com/KarpelesLab/rest v0.2.2 h1:cSj/WF3ffbW+dh61+TFCE6CY0IOOEgkY7VeQEr3paj
 github.com/KarpelesLab/rest v0.2.2/go.mod h1:rVA9bURXRRZLN2ms3A5JmH+zpc9SNoUHNX5KFCemtlE=
 github.com/KarpelesLab/rest v0.3.0 h1:VXcJv/vBi+1bab9wcHz+P+KoUU1SNarrpPyeFS7xtKg=
 github.com/KarpelesLab/rest v0.3.0/go.mod h1:EkzPNO1adObicrTfsdNpoXvxwIQ/PSVpz7ximuiNnn4=
+github.com/KarpelesLab/rest v0.4.1 h1:SOQYNuIj9iWS4rVeFPH9tO4E5Fgb6MtVT7WL183shhM=
+github.com/KarpelesLab/rest v0.4.1/go.mod h1:EkzPNO1adObicrTfsdNpoXvxwIQ/PSVpz7ximuiNnn4=
+github.com/KarpelesLab/rest v0.4.2 h1:C7AiBdYn8EJcb6R3+ZtotkNkUU8r4lYjgnFLwndND0c=
+github.com/KarpelesLab/rest v0.4.2/go.mod h1:EkzPNO1adObicrTfsdNpoXvxwIQ/PSVpz7ximuiNnn4=
