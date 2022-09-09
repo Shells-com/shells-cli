@@ -25,7 +25,7 @@ type ShellOs struct {
 	CPU     string   // x86_64
 	Purpose string   // unknown|desktop|server|mobile
 	Cmdline string   // cmdline for guest-linux
-	Flags   []string // byol_warning
+	Flags   struct{} // byol_warning
 }
 
 type ShellOsImage struct {
