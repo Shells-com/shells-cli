@@ -99,8 +99,8 @@ func (auth *authInfo) save() error {
 func (auth *authInfo) login() error {
 	// prepare to login
 	// we need a realtime token
-	var res map[string]interface{}
-	err := rest.Apply(context.Background(), "OAuth2/App/"+clientID+":token_create", "POST", map[string]interface{}{}, &res)
+	var res map[string]any
+	err := rest.Apply(context.Background(), "OAuth2/App/"+clientID+":token_create", "POST", map[string]any{}, &res)
 	if err != nil {
 		return err
 	}
@@ -121,8 +121,8 @@ func (auth *authInfo) login() error {
 
 	// wait for login to complete
 	for {
-		var res map[string]interface{}
-		err := rest.Apply(context.Background(), "OAuth2/App/"+clientID+":token_poll", "POST", map[string]interface{}{"polltoken": tok}, &res)
+		var res map[string]any
+		err := rest.Apply(context.Background(), "OAuth2/App/"+clientID+":token_poll", "POST", map[string]any{"polltoken": tok}, &res)
 		if err != nil {
 			return err
 		}
@@ -133,7 +133,7 @@ func (auth *authInfo) login() error {
 			continue
 		}
 
-		resp, ok := v.(map[string]interface{})
+		resp, ok := v.(map[string]any)
 		if !ok {
 			return fmt.Errorf("invalid response from api, response of invalid type")
 		}
@@ -172,7 +172,7 @@ func (auth *authInfo) login() error {
 	}
 }
 
-func (auth *authInfo) Apply(ctx context.Context, p, m string, arg map[string]interface{}, target interface{}) error {
+func (auth *authInfo) Apply(ctx context.Context, p, m string, arg map[string]any, target interface{}) error {
 	err := rest.Apply(auth.token.Use(ctx), p, m, arg, target)
 	if err != nil {
 		return err

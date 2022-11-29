@@ -45,7 +45,9 @@ func osList(ri *runInfo) error {
 	// list available shells
 	var list []ShellOs
 
-	err := ri.auth.Apply(context.Background(), "Shell/OS", "GET", map[string]interface{}{}, &list)
+	// TODO read paging information and fetch all pages if more than one
+
+	err := ri.auth.Apply(context.Background(), "Shell/OS", "GET", map[string]any{"results_per_page": 100}, &list)
 	if err != nil {
 		return err
 	}
@@ -63,7 +65,7 @@ func osImgList(ri *runInfo) error {
 
 	osId := ri.flags["os"]
 
-	err := ri.auth.Apply(context.Background(), "Shell/OS/"+osId+"/Image", "GET", map[string]interface{}{}, &list)
+	err := ri.auth.Apply(context.Background(), "Shell/OS/"+osId+"/Image", "GET", map[string]any{}, &list)
 	if err != nil {
 		return err
 	}
@@ -87,7 +89,7 @@ func osImgUpload(ri *runInfo) error {
 
 	log.Printf("Uploading %s ...", fn)
 
-	res, err := rest.Upload(ri.auth.token.Use(context.Background()), "Shell/OS/"+osId+"/Image:upload", "POST", map[string]interface{}{"filename": filepath.Base(fn)}, fp, "application/octet-stream")
+	res, err := rest.Upload(ri.auth.token.Use(context.Background()), "Shell/OS/"+osId+"/Image:upload", "POST", map[string]any{"filename": filepath.Base(fn)}, fp, "application/octet-stream")
 	if err != nil {
 		return err
 	}
