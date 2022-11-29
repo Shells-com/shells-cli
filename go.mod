@@ -1,7 +1,7 @@
 module github.com/Shells-com/shells-cli
 
-go 1.16
+go 1.18
 
-require (
-	github.com/KarpelesLab/rest v0.4.2 // indirect
-)
+require github.com/KarpelesLab/rest v0.4.7
+
+require github.com/KarpelesLab/webutil v0.0.3 // indirect

@@ -111,7 +111,13 @@ func (auth *authInfo) login() error {
 
 	// see: https://www.shells.com/.well-known/openid-configuration?pretty
 	tokuri := url.QueryEscape("polltoken:" + tok)
-	log.Printf("Please open this URL in order to access shells:\nhttps://www.shells.com/_rest/OAuth2:auth?response_type=code&client_id=%s&redirect_uri=%s&scope=profile", clientID, tokuri)
+	fulluri := fmt.Sprintf("https://www.shells.com/_rest/OAuth2:auth?response_type=code&client_id=%s&redirect_uri=%s&scope=profile", clientID, tokuri)
+
+	if u, ok := res["xox"].(string); ok {
+		fulluri = u
+	}
+
+	log.Printf("Please open this URL in order to access shells:\n%s", fulluri)
 
 	// wait for login to complete
 	for {

@@ -15,17 +15,17 @@ type ShellOs struct {
 	Name string
 
 	URL     string
-	Default string   // Y|N
-	Ready   string   // Y|N
-	Visible string   // Y|N
-	Beta    string   // Y|N
-	Public  string   // Y|N
-	Family  string   // linux|windows|macos|android|unknown
-	Boot    string   // guest-linux|bios|efi
-	CPU     string   // x86_64
-	Purpose string   // unknown|desktop|server|mobile
-	Cmdline string   // cmdline for guest-linux
-	Flags   []string // byol_warning
+	Default string         // Y|N
+	Ready   string         // Y|N
+	Visible string         // Y|N
+	Beta    string         // Y|N
+	Public  string         // Y|N
+	Family  string         // linux|windows|macos|android|unknown
+	Boot    string         // guest-linux|bios|efi
+	CPU     string         // x86_64
+	Purpose string         // unknown|desktop|server|mobile
+	Cmdline string         // cmdline for guest-linux
+	Flags   map[string]any // byol_warning
 }
 
 type ShellOsImage struct {

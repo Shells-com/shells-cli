@@ -6,3 +6,7 @@ github.com/KarpelesLab/rest v0.4.1 h1:SOQYNuIj9iWS4rVeFPH9tO4E5Fgb6MtVT7WL183shh
 github.com/KarpelesLab/rest v0.4.1/go.mod h1:EkzPNO1adObicrTfsdNpoXvxwIQ/PSVpz7ximuiNnn4=
 github.com/KarpelesLab/rest v0.4.2 h1:C7AiBdYn8EJcb6R3+ZtotkNkUU8r4lYjgnFLwndND0c=
 github.com/KarpelesLab/rest v0.4.2/go.mod h1:EkzPNO1adObicrTfsdNpoXvxwIQ/PSVpz7ximuiNnn4=
+github.com/KarpelesLab/rest v0.4.7 h1:77zX+nBXM7sJyA3+KaoINbhpHYZUhOFz5hi1UvdogKo=
+github.com/KarpelesLab/rest v0.4.7/go.mod h1:q1PAVDI1BQsqXY0gtA94ojwXhcM4yrGlCuX3EEPfrg0=
+github.com/KarpelesLab/webutil v0.0.3 h1:JGM542M90DOfGi4ev3JSg0KOuGrXxnCV/nDXeTj347o=
+github.com/KarpelesLab/webutil v0.0.3/go.mod h1:w7TfiRjSVIeL4jZVBQidPmdG8qc22PqTygIL+mjQci8=
