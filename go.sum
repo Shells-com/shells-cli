@@ -1,3 +1,5 @@
+github.com/KarpelesLab/pjson v0.1.10 h1:ZZcRvHj3fjY/fnYQ+Zow9SCZDOGYTkXs/0v0qtOgv3A=
+github.com/KarpelesLab/pjson v0.1.10/go.mod h1:gb4uSTld7I2kO2WvLdat1mN1brsS1hzSR+dWw1hL3iU=
 github.com/KarpelesLab/rest v0.2.2 h1:cSj/WF3ffbW+dh61+TFCE6CY0IOOEgkY7VeQEr3pajY=
 github.com/KarpelesLab/rest v0.2.2/go.mod h1:rVA9bURXRRZLN2ms3A5JmH+zpc9SNoUHNX5KFCemtlE=
 github.com/KarpelesLab/rest v0.3.0 h1:VXcJv/vBi+1bab9wcHz+P+KoUU1SNarrpPyeFS7xtKg=
@@ -8,5 +10,13 @@ github.com/KarpelesLab/rest v0.4.2 h1:C7AiBdYn8EJcb6R3+ZtotkNkUU8r4lYjgnFLwndND0
 github.com/KarpelesLab/rest v0.4.2/go.mod h1:EkzPNO1adObicrTfsdNpoXvxwIQ/PSVpz7ximuiNnn4=
 github.com/KarpelesLab/rest v0.4.7 h1:77zX+nBXM7sJyA3+KaoINbhpHYZUhOFz5hi1UvdogKo=
 github.com/KarpelesLab/rest v0.4.7/go.mod h1:q1PAVDI1BQsqXY0gtA94ojwXhcM4yrGlCuX3EEPfrg0=
+github.com/KarpelesLab/rest v0.5.33 h1:h+nfSHvWK8eJCIcinnVjSav7PsPBUD4wbs/IJA5IPAs=
+github.com/KarpelesLab/rest v0.5.33/go.mod h1:g+TIjeSRniUGPFvZW93dRk4D9KhSdkupQby07Rqzuvc=
+github.com/KarpelesLab/typutil v0.2.31 h1:f5cNrFTTURUpZ+9GfXNwQDDwmVSTR+R2p/xAPpfj/x8=
+github.com/KarpelesLab/typutil v0.2.31/go.mod h1:D40zw2FqfQwMnczl1uaXRK0dsUAO/isDElTkAJWfQb4=
 github.com/KarpelesLab/webutil v0.0.3 h1:JGM542M90DOfGi4ev3JSg0KOuGrXxnCV/nDXeTj347o=
 github.com/KarpelesLab/webutil v0.0.3/go.mod h1:w7TfiRjSVIeL4jZVBQidPmdG8qc22PqTygIL+mjQci8=
+github.com/KarpelesLab/webutil v0.2.2 h1:FsUwiLAjMDZj9zaSL4hzg2SWgJa9tQzM1A1w15RAGHw=
+github.com/KarpelesLab/webutil v0.2.2/go.mod h1:AKTsmoimqwSdJHtZzBnvxcjQv3lgyw/GVJFVyXaDilU=
+github.com/google/uuid v1.6.0 h1:NIvaJDMOsjHA8n1jAhLSgzrAzy1Hgr+hNrb57e+94F0=
+github.com/google/uuid v1.6.0/go.mod h1:TIyPZe4MgqvfeYDBFedMoGGpEw/LqOeaOT+nhxU+yHo=
